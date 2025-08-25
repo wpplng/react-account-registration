@@ -1,25 +1,24 @@
-import { useRef, type ReactElement } from 'react';
+import { useState, type ReactElement } from 'react';
 import { Button } from '../elements/Button';
 import { TextInput } from '../elements/TextInput';
 import { registerUserSettings } from '../utilities/formData';
+import type { UserType } from '../utilities/UserType';
 
 const RegisterUser = (): ReactElement => {
-  const refs: Record<
-    keyof typeof registerUserSettings,
-    React.RefObject<HTMLInputElement | null>
-  > = {
-    name: useRef(null),
-    username: useRef(null),
-    email: useRef(null),
-    password: useRef(null),
-    confirmPassword: useRef(null),
+  const [formData, setFormData] = useState<UserType>(() =>
+    Object.keys(registerUserSettings).reduce(
+      (acc, key) => ({ ...acc, [key]: '' }),
+      {} as UserType
+    )
+  );
+
+  const handleChange = (name: keyof UserType, value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    for (const key in refs) {
-      console.log(`${key}:`, refs[key as keyof typeof refs].current?.value);
-    }
+    console.log(formData);
   };
 
   return (
@@ -32,7 +31,8 @@ const RegisterUser = (): ReactElement => {
           label={value.label}
           type={value.type}
           autoComplete={value.autoComplete}
-          ref={refs[key as keyof typeof refs]}
+          value={formData[key as keyof UserType]}
+          onChange={(e) => handleChange(key as keyof UserType, e.target.value)}
         />
       ))}
       <Button type='submit' />
