@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #17283d;
+  --blue-dark: #2d313d;
+  --blue-light: #9ab5b8;
+  --white: #f9faf5;
+  --red: rgb(249, 30, 30);
+}
+
+body {
+  color: var(--white);
+  background-color: var(--blue-light);
+  font-family: 'Lato', sans-serif;
+}

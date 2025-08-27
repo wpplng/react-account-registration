@@ -47,22 +47,25 @@ const RegisterUser = (): ReactElement => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {Object.entries(registerUserSettings).map(([key, value]) => (
-        <TextInput
-          key={key}
-          id={value.name}
-          name={value.name}
-          label={value.label}
-          type={value.type}
-          autoComplete={value.autoComplete}
-          errorMsg={errors[key as keyof typeof errors]}
-          value={formData[key as keyof UserType]}
-          onChange={handleChange}
-        />
-      ))}
-      <Button type='submit' disabled={!isValidForm} />
-    </form>
+    <section className='register-user'>
+      <h1>Register User</h1>
+      <form onSubmit={handleSubmit}>
+        {Object.entries(registerUserSettings).map(([key, value]) => (
+          <TextInput
+            key={key}
+            id={value.name}
+            name={value.name}
+            label={value.label}
+            type={value.type}
+            autoComplete={value.autoComplete}
+            errorMsg={errors[key as keyof typeof errors]}
+            value={formData[key as keyof UserType]}
+            onChange={handleChange}
+          />
+        ))}
+        <Button type='submit' disabled={!isValidForm} />
+      </form>
+    </section>
   );
 };
 

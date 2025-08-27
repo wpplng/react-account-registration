@@ -1,0 +1,22 @@
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.text-input input {
+  width: 300px;
+  border-radius: 5px;
+  padding: 1rem 0.8rem;
+  border: none;
+}
+
+.text-input input::placeholder {
+  color: var(--blue-dark);
+}
+
+.text-input p {
+  color: var(--red);
+  font-size: small;
+  text-align: left;
+}
