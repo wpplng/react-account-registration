@@ -6,6 +6,7 @@
   border: none;
   color: var(--white);
   font-size: medium;
+  width: 400px;
 }
 
 .button:hover {
