@@ -48,7 +48,7 @@ const RegisterUser = (): ReactElement => {
 
   return (
     <section className='register-user'>
-      <h1>Register User</h1>
+      <h1>Account registration</h1>
       <form onSubmit={handleSubmit}>
         {Object.entries(registerUserSettings).map(([key, value]) => (
           <TextInput
@@ -63,7 +63,7 @@ const RegisterUser = (): ReactElement => {
             onChange={handleChange}
           />
         ))}
-        <Button type='submit' disabled={!isValidForm} />
+        <Button type='submit' disabled={!isValidForm} text='Sign up' />
       </form>
     </section>
   );
