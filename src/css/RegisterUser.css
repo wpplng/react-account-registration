@@ -12,6 +12,7 @@
 }
 
 .register-user h1 {
+  font-size: xx-large;
   margin-bottom: 2rem;
-  color: var(--blue);
+  color: var(--blue-dark);
 }
