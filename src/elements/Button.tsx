@@ -7,7 +7,7 @@ type ButtonTypeProps = {
 
 export const Button = ({ type, disabled }: ButtonTypeProps): ReactElement => {
   return (
-    <button type={type} disabled={disabled}>
+    <button type={type} disabled={disabled} className='button'>
       Register User
     </button>
   );

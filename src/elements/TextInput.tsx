@@ -32,7 +32,7 @@ export const TextInput = ({
         value={value}
         onChange={onChange}
       />
-      {errorMsg && <p>{errorMsg}</p>}
+      {errorMsg ? <p>{errorMsg}</p> : <p></p>}
     </div>
   );
 };
