@@ -13,11 +13,11 @@ const RegisterUser = (): ReactElement => {
     confirmPassword: '',
   });
 
-  const passwordLongEnough = formData.password.length >= 8;
-  const passwordsMatch =
+  const passwordLongEnough: boolean = formData.password.length >= 8;
+  const passwordsMatch: boolean =
     formData.password.length > 0 &&
     formData.password === formData.confirmPassword;
-  const isValidForm = passwordLongEnough && passwordsMatch;
+  const isValidForm: boolean = passwordLongEnough && passwordsMatch;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
