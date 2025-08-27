@@ -13,6 +13,12 @@ const RegisterUser = (): ReactElement => {
     confirmPassword: '',
   });
 
+  const passwordLongEnough = formData.password.length >= 8;
+  const passwordsMatch =
+    formData.password.length > 0 &&
+    formData.password === formData.confirmPassword;
+  const isValidForm = passwordLongEnough && passwordsMatch;
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -20,7 +26,14 @@ const RegisterUser = (): ReactElement => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+
+    const registrationData = {
+      name: formData.name,
+      username: formData.username,
+      email: formData.email,
+      password: formData.password,
+    };
+    console.log(registrationData);
   };
 
   return (
@@ -37,7 +50,7 @@ const RegisterUser = (): ReactElement => {
           onChange={handleChange}
         />
       ))}
-      <Button type='submit' />
+      <Button type='submit' disabled={!isValidForm} />
     </form>
   );
 };
