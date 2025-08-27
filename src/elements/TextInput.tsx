@@ -23,15 +23,18 @@ export const TextInput = ({
 }: InputProps): ReactElement => {
   return (
     <div className='text-input'>
-      <input
-        id={id}
-        name={name}
-        type={type}
-        placeholder={label}
-        autoComplete={autoComplete}
-        value={value}
-        onChange={onChange}
-      />
+      <label>
+        {label}
+        <input
+          id={id}
+          name={name}
+          type={type}
+          placeholder={label}
+          autoComplete={autoComplete}
+          value={value}
+          onChange={onChange}
+        />
+      </label>
       {errorMsg ? <p>{errorMsg}</p> : <p></p>}
     </div>
   );
