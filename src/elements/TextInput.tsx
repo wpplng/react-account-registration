@@ -21,15 +21,17 @@ export const TextInput = ({
 }: InputProps): ReactElement => {
   return (
     <div>
-      <label htmlFor={id}>{label}</label>
-      <input
-        id={id}
-        name={name}
-        type={type}
-        autoComplete={autoComplete}
-        value={value}
-        onChange={onChange}
-      />
+      <label>
+        {label}
+        <input
+          id={id}
+          name={name}
+          type={type}
+          autoComplete={autoComplete}
+          value={value}
+          onChange={onChange}
+        />
+      </label>
     </div>
   );
 };
