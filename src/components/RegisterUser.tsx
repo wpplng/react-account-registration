@@ -5,14 +5,16 @@ import { registerUserSettings } from '../utilities/formData';
 import type { UserType } from '../utilities/UserType';
 
 const RegisterUser = (): ReactElement => {
-  const [formData, setFormData] = useState<UserType>(() =>
-    Object.keys(registerUserSettings).reduce(
-      (acc, key) => ({ ...acc, [key]: '' }),
-      {} as UserType
-    )
-  );
+  const [formData, setFormData] = useState<UserType>({
+    name: '',
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
-  const handleChange = (name: keyof UserType, value: string) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -32,7 +34,7 @@ const RegisterUser = (): ReactElement => {
           type={value.type}
           autoComplete={value.autoComplete}
           value={formData[key as keyof UserType]}
-          onChange={(e) => handleChange(key as keyof UserType, e.target.value)}
+          onChange={handleChange}
         />
       ))}
       <Button type='submit' />
