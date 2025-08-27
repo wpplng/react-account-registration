@@ -6,6 +6,7 @@ type InputProps = {
   label: string;
   type: string;
   autoComplete: string;
+  errorMsg?: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -16,6 +17,7 @@ export const TextInput = ({
   label,
   type,
   autoComplete,
+  errorMsg,
   value,
   onChange,
 }: InputProps): ReactElement => {
@@ -32,6 +34,7 @@ export const TextInput = ({
           onChange={onChange}
         />
       </label>
+      {errorMsg && <p>{errorMsg}</p>}
     </div>
   );
 };

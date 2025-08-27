@@ -18,6 +18,16 @@ const RegisterUser = (): ReactElement => {
     formData.password.length > 0 &&
     formData.password === formData.confirmPassword;
   const isValidForm: boolean = passwordLongEnough && passwordsMatch;
+  const errors = {
+    password:
+      formData.password.length > 0 && !passwordLongEnough
+        ? 'Password must be at least 8 characters'
+        : '',
+    confirmPassword:
+      formData.confirmPassword.length > 0 && !passwordsMatch
+        ? 'Passwords must match'
+        : '',
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -46,6 +56,7 @@ const RegisterUser = (): ReactElement => {
           label={value.label}
           type={value.type}
           autoComplete={value.autoComplete}
+          errorMsg={errors[key as keyof typeof errors]}
           value={formData[key as keyof UserType]}
           onChange={handleChange}
         />
