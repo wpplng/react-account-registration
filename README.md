@@ -1,69 +1,48 @@
-# React + TypeScript + Vite
+# Exercise: Account Registration – React Edition
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In this exercise, the **Account Registration**, you’ll build the a form using **React**.
 
-Currently, two official plugins are available:
+## Goal
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You are going to build an account registration form using React. The design and functionality should match the specification, and you’re expected to apply modern React practices:
 
-## Expanding the ESLint configuration
+- Use **components** to split the form into logical parts (e.g. `InputField`, `Form`, `SubmitButton`).
+- **Lift state up** where necessary, and control the form inputs via state.
+- Use **event handlers** (e.g. `onChange`, `onSubmit`) appropriately.
+- **Use React refs** where helpful (e.g. for focusing or label connections).
+- Focus on clean logic, minimal duplication, and reusable parts.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Instructions
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- The form must contain five inputs: `name`, `username`, `email`, `password`, and `confirm password`.
+- The inputs should be within a `<form>`, and each must have a **connected label**, **without** using the `for` attribute.
+- All fields are **required**.
+- Passwords must:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+  - Be at least 8 characters long.
+  - Match each other.
+  - Be validated **live**, with appropriate visual feedback.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- The **submit button must be disabled** until passwords are valid.
+- On submit, log the values in this structure:
 
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+const registrationData = {
+  name: 'first name last name',
+  username: 'username',
+  email: 'email@email.com',
+  password: 'password',
+};
 ```
+
+- Style the form cleanly – no need to copy the example image, just make it readable and user-friendly.
+
+## Reminder
+
+This exercise is not just about creating a form – it's about **thinking like a React developer**:
+
+- Use **controlled components** for your inputs.
+- Structure your code for **reusability and clarity**.
+- Keep logic **separated from presentation** where possible.
+
+Good luck!
